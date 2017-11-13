@@ -21,8 +21,6 @@ class SessionController < ApplicationController
 
   #logout user
   def logout
-  	#puts "checking session #{params[:token]}"
-
   	if check_token()
   		#removing token
   		@user_token.update_columns(:token=>nil)
