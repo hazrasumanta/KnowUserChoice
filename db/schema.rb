@@ -10,7 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171113125444) do
+ActiveRecord::Schema.define(version: 20171113143311) do
+
+  create_table "topic_of_interests", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "topic"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "topic_of_interests_users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.bigint "user_id"
+    t.bigint "topic_of_interest_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["topic_of_interest_id"], name: "index_topic_of_interests_users_on_topic_of_interest_id"
+    t.index ["user_id"], name: "index_topic_of_interests_users_on_user_id"
+  end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
@@ -23,4 +38,6 @@ ActiveRecord::Schema.define(version: 20171113125444) do
     t.string "token"
   end
 
+  add_foreign_key "topic_of_interests_users", "topic_of_interests"
+  add_foreign_key "topic_of_interests_users", "users"
 end

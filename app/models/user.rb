@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   has_secure_password
+  has_and_belongs_to_many :topic_of_interests, :dependent => :destroy
   # validating user params
   validates :name, presence: true
   validates :email, presence: true,uniqueness: true

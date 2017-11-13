@@ -1,5 +1,6 @@
 class SessionController < ApplicationController
-
+	include AdminHelper
+	#before_action :check_token, only: [:logout]
   #Creating session of a user
   def login
   	#checking in session 
@@ -9,25 +10,27 @@ class SessionController < ApplicationController
   		user.genarate_token()
   		#here updating user last login time
   		user.update_last_login_time()
+  		session[:user_id] = user.id
   		user = user.to_json(:root => false,
              :only => [:name,:email,:phone,:last_sign_in_at,:token])
   		render json: user
   	else
-  		render json: user.errors, status: :wrong_entry
+  		render json: {status: :false,message: :wrong_email_id_or_password}
   	end
   end
 
   #logout user
   def logout
-  	#
-  	puts "checking session #{params[:token]}"
-  	user_token = User.find_by(token: params[:token])
-  	if user_token
-  		user_token.update_columns(:token=>nil)
-  		render json: {status: :ok}
+  	#puts "checking session #{params[:token]}"
+
+  	if check_token()
+  		#removing token
+  		@user_token.update_columns(:token=>nil)
+  		render json: {status: :ok,message: :logout_successfully}
   	else
-  		render json:  {status: :false}
+  		render json:  {status: :false,message: :user_authentication_failed}
   	end
-  	
   end
+
+  
 end
