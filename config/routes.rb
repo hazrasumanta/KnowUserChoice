@@ -1,9 +1,14 @@
 Rails.application.routes.draw do
   get 'session/new'
 
-  get 'session/create'
-
   get 'session/destroy'
+
+  resources :session do
+  	collection do
+  		post :login
+  		post :logout
+  	end
+  end
 
   resources :users do
   	collection do

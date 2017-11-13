@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171113074715) do
+ActiveRecord::Schema.define(version: 20171113125444) do
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 20171113074715) do
     t.datetime "last_sign_in_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "token"
   end
 
 end
