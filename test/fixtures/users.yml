@@ -4,12 +4,12 @@ one:
   name: MyString
   phone: MyString
   email: MyString
-  passworld: 
-  last_sign_in_at: 2017-11-13 12:27:54
+  password_digest: <%= BCrypt::Password.create('secret') %>
+  last_sign_in_at: 2017-11-13 13:17:15
 
 two:
   name: MyString
   phone: MyString
   email: MyString
-  passworld: 
-  last_sign_in_at: 2017-11-13 12:27:54
+  password_digest: <%= BCrypt::Password.create('secret') %>
+  last_sign_in_at: 2017-11-13 13:17:15
