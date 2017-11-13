@@ -1,3 +1,4 @@
+# Very Simple Rails Api to login and signup user and find topics of interest 
 # Rails and Ruby version
 * Ruby 2.4.0p0
 
@@ -14,32 +15,32 @@
 * rake db:seed / rails db:seed :+1:
 # Some links
 * Use this link to Signup [http://localhost:3000/users/signup](http://localhost:3000/users/signup)
-	```{
+```{
 		"name": "sumanta",
 	    "phone": "9040451287",
 	    "email": "hazrasumanta@gmail.com",
 	    "password":"sumanta4321",
 	    "password_confirmation":"sumanta4321"
 	}
-	```
+```
 	if successfully
-		```{
+```{
     "status": "ok",
     "message": "user_created"
 	}
 ```
 	else
-		```{
+```{
     "status": "false",
     "message": "user_not_created"
 }
 ```
 * Use this link to Login [http://localhost:3000/session/login](http://localhost:3000/session/login) 
-	```{
+```{
 		"email":"hazrasumantaa@gmail.com",
 		"password":"sumanta123"
 	}
-	```
+```
 	if successfully
 
 ```{
@@ -51,13 +52,13 @@
 }
 ```
 	else
-	```{
+```{
     "status": "false",
     "message": "wrong_email_id_or_password"
 }```
 * Use this link to view user interested [http://localhost:3000/users/topics](http://localhost:3000/users/topics)
 You have send user token
-	```{
+```{
 		"token":"ylsypyrjbcfxpnfsdcpuzxraptssejyiuanlkmwenhmdnwmmdo"
 	}
 ```
@@ -161,4 +162,4 @@ You have send user token
     }
 ]```
 
-:+1:
+Thats all :+1:
